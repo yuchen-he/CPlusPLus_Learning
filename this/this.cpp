@@ -15,13 +15,14 @@ public:
         strcpy(name, n);
         age = a;
         sex = s;
+        cout<<"In constructor, sex is: "<<s<<endl;
     }
 
-    int get_age() const{  // get_age函数会被解析成get_age(const A * const this)
+    int get_age() const{  // get_age函数会被解析成get_age(const A * const this), 相当于python的(self)
         return this->age;
     }
 
-    Person& add_age(int a){  // add_age函数会被解析成add_age(A* const this,int a)
+    Person& add_age(int a){  // add_age函数会被解析成add_age(A* const this,int a), 相当于python的(self, a)
         age += a;
         return *this;
     }
@@ -36,7 +37,7 @@ private:
 };
 
 int main(){
-    Person p("zhangsan",20,Person::BOY);
+    Person p("zhangsan",20,Person::BOY);  // Person::BOY == enum Person::SexType::BOY = 0;
     // cout<<p.sex<<endl; 因为sex是私用成员变量，所以不可直接访问
     cout<<p.get_age()<<endl;
 	cout<<p.add_age(10).get_age()<<endl;    //add_age()返回的是类本身，因此可以后面可接.get_age()（用*this来实现）
