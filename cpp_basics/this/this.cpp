@@ -5,7 +5,7 @@
 using namespace std;
 class Person{
 public:
-    typedef enum{  //自定义了一种数据类型：枚举型（可以用它来声明不用变量，就跟int，char这些一样用）
+    typedef enum{  //自定义了一种数据类型：枚举型（可以用它来声明不同变量，就跟int，char这些一样用）
         BOY = 0,
         GIRL       //第一个成员BOY之后的成员的值会一次加1，因此GIRL=BOY+1=1
     }SexType;      //SexType是一个别名（使用typedef可以得到此效果），因此可以用SexType来实例化不同对象

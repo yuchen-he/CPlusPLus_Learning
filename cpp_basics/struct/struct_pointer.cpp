@@ -9,12 +9,13 @@ using namespace std;
 struct Books{
     int id;
     struct Books *next;     //不能用"struct Books next",这样成员next会无限包含下一个完整的结构体，导致内存溢出
+    // void func(){};       //C++的结构体中可以有函数定义，C语言不行
 };
 
 //2. 使用typedef定义的结构体自引用
 //   作用：可以定义别名
 typedef struct Books1{
-    Books1 *next;           //用typedef时，不需要加上struct了
+    Books1 *next;           //用typedef时，不需要加上struct了(在C语言中使用结构体基类型时需写成struct Books1 book;)
     int id;
 }books1, *books1Ptr;        //Books1的别名
             /*
